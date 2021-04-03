@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<head>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script> <!-- 리액트 요소들, 두개 필수 -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> <!-- 바벨, 스크립트 안에서 HTML 코드가 돌아갈 수 있도록 해준다. -->
+    <style>
+        #wrap {
+            display: grid;
+            grid-template-columns: 100px 100px 100px;
+            grid-template-rows: 100px 100px 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        const answer = [ 1, 2, 3, 4, 5, 6, 7, 8, '*' ];
+        var data = [];
+        var idx = 0;
+        while(true) {
+            var tmp = Math.floor(Math.random() * 9) + 1;
+
+            if (data.indexOf(tmp) === -1) {
+                data[idx] = tmp;
+                idx++;
+            }
+            
+            if (idx === 9) {
+                data[data.indexOf(9)] = '*';
+                break;
+            }
+        }
+
+        const moveNum = (e) => {
+            //console.log(e.target.innerHTML); 누른 button의 innerHTML
+            //console.log(e.target.parentNode.id); 누른 자리 div id값  
+            //console.log(document.getElementById('1').id); 근처 div id값
+            //console.log(document.getElementById('1').childNodes[0].innerHTML); 근처 button의 innerHTML
+
+            if (e.target.parentNode.id === '0') {
+                //0번 div 누름
+                if (document.getElementById('1').childNodes[0].innerHTML === '*') {
+                    document.getElementById('1').childNodes[0].innerHTML = e.target.innerHTML;
+                    e.target.innerHTML = '*';
+                }
+
+                else if (document.getElementById('3').childNodes[0].innerHTML === '*') {
+                    document.getElementById('3').childNodes[0].innerHTML = e.target.innerHTML;
+                    e.target.innerHTML = '*';
+                }
+            }
+            else if (e.target.parentNode.id === '1') {
+                //1번 div 누름
+                if (document.getElementById('0').childNodes[0].innerHTML === '*') {
+                    document.getElementById('0').childNodes[0].innerHTML = e.target.innerHTML;
+                    e.target.innerHTML = '*';
+                } 
+                else if (document.getElementById('2').childNodes[0].innerHTML === '*') {
+                    document.getElementById('2').childNodes[0].innerHTML = e.target.innerHTML;
+                    e.target.innerHTML = '*';
+                }
+                else if (document.getElementById('4').childNodes[0].innerHTML === '*') {
+                    document.getElementById('4').childNodes[0].innerHTML = e.target.innerHTML;
+                    e.target.innerHTML = '*';
+                }
+            }
+            else if (e.target.parentNode.id === '2') {
+                //2번 div 누름
+                if (document.getElementById('1').childNodes[0].innerHTML === '*') {
+                    document.getElementById('1').childNodes[0].innerHTML = e.target.innerHTML;
+                    e.target.innerHTML = '*';
+                } 
+                else if (document.getElementById('5').childNodes[0].innerHTML === '*') {
+                    document.getElementById('5').childNodes[0].innerHTML = e.target.innerHTML;
+                    e.target.innerHTML = '*';
+                }
+            }
+            else if (e.target.parentNode.id === '3') {
+                //3번 div 누름
+                if (document.getElementById('0').childNodes[0].innerHTML === '*') {
+                    document.getElementById('0').childNodes[0].innerHTML = e.target.innerHTML;
+                    e.target.innerHTML = '*';
+                } 
+                else if (document.getElementById('4').childNodes[0].innerHTML === '*') {
+                    document.getElementById('4').childNodes[0].innerHTML = e.target.innerHTML;
+                    e.target.innerHTML = '*';
+                }
+                else if (document.getElementById('6').childNodes[0].innerHTML === '*') {
+                    document.getElementById('6').childNodes[0].innerHTML = e.target.innerHTML;
+                    e.target.innerHTML = '*';
+                }
+            }
+            else if (e.target.parentNode.id === '4') {
+                //4번 div 누름
+                if (document.getElementById('1').childNodes[0].innerHTML === '*') {
+                    document.getElementById('1').childNodes[0].innerHTML = e.target.innerHTML;
+                    e.target.innerHTML = '*';
+                }
+                else if (document.getElementById('3').childNodes[0].innerHTML === '*') {
+                    document.getElementById('3').childNodes[0].innerHTML = e.target.innerHTML;
+                    e.target.innerHTML = '*';
+                }
+                else if (document.getElementById('5').childNodes[0].innerHTML === '*') {
+                    document.getElementById('5').childNodes[0].innerHTML = e.target.innerHTML;
+                    e.target.innerHTML = '*';
+                }
+                else if (document.getElementById('7').childNodes[0].innerHTML === '*') {
+                    document.getElementById('7').childNodes[0].innerHTML = e.target.innerHTML;
+                    e.target.innerHTML = '*';
+                }
+            }
+            else if (e.target.parentNode.id === '5') {
+                //5번 div 누름
+                if (document.getElementById('2').childNodes[0].innerHTML === '*') {
+                    document.getElementById('2').childNodes[0].innerHTML = e.target.innerHTML;
+                    e.target.innerHTML = '*';
+                }
+                else if (document.getElementById('4').childNodes[0].innerHTML === '*') {
+                    document.getElementById('4').childNodes[0].innerHTML = e.target.innerHTML;
+                    e.target.innerHTML = '*';
+                }
+                else if (document.getElementById('8').childNodes[0].innerHTML === '*') {
+                    document.getElementById('8').childNodes[0].innerHTML = e.target.innerHTML;
+                    e.target.innerHTML = '*';
+                }
+            }
+            else if (e.target.parentNode.id === '6') {
+                //6번 div 누름
+                if (document.getElementById('3').childNodes[0].innerHTML === '*') {
+                    document.getElementById('3').childNodes[0].innerHTML = e.target.innerHTML;
+                    e.target.innerHTML = '*';
+                }
+                else if (document.getElementById('7').childNodes[0].innerHTML === '*') {
+                    document.getElementById('7').childNodes[0].innerHTML = e.target.innerHTML;
+                    e.target.innerHTML = '*';
+                }
+            }
+            else if (e.target.parentNode.id === '7') {
+                //7번 div 누름
+                if (document.getElementById('4').childNodes[0].innerHTML === '*') {
+                    document.getElementById('4').childNodes[0].innerHTML = e.target.innerHTML;
+                    e.target.innerHTML = '*';
+                }
+                else if (document.getElementById('6').childNodes[0].innerHTML === '*') {
+                    document.getElementById('6').childNodes[0].innerHTML = e.target.innerHTML;
+                    e.target.innerHTML = '*';
+                }
+                else if (document.getElementById('8').childNodes[0].innerHTML === '*') {
+                    document.getElementById('8').childNodes[0].innerHTML = e.target.innerHTML;
+                    e.target.innerHTML = '*';
+                }
+            }
+            else if (e.target.parentNode.id === '8') {
+                //8번 div 누름
+                if (document.getElementById('5').childNodes[0].innerHTML === '*') {
+                    document.getElementById('5').childNodes[0].innerHTML = e.target.innerHTML;
+                    e.target.innerHTML = '*';
+                }
+                else if (document.getElementById('7').childNodes[0].innerHTML === '*') {
+                    document.getElementById('7').childNodes[0].innerHTML = e.target.innerHTML;
+                    e.target.innerHTML = '*';
+                }
+            }
+        }
+
+        const numbers = data.map((num, index) => (
+            <div key={index} id={index}>
+                <button className="numBtn" onClick={moveNum}>{num}</button>
+            </div>
+        ));
+
+        const NumberGame = () => {
+            return (
+                <div id="wrap">
+                    {numbers}
+                </div>
+            );
+        }
+    </script>
+
+    <script type="text/babel">
+        ReactDOM.render(<React.Fragment><NumberGame/></React.Fragment>, document.querySelector("#root")); 
+    </script>
+</body>
