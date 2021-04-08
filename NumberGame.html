@@ -22,9 +22,10 @@
 
         .numBtn {
             background-color: rgb(238, 253, 153);
-            height: 50px;
-            width: 50px;
-            font-size: 20px;
+            height: 60px;
+            width: 60px;
+            font-size: 25px;
+            border-radius: 8px;
         }
     </style>
 </head>
@@ -32,23 +33,138 @@
     <div id="root"></div>
     
     <script type="text/babel">
-        var answer = [ 1, 2, 3, 4, 5, 6, 7, 8, '*' ];
-        var data = [];
-        var idx = 0;
-        while(true) { // 버튼에 들어갈 랜덤 배열 생성
-            var tmp = Math.floor(Math.random() * 9) + 1;
+        var answer = [ 1, 2, 3, 4, 5, 6, 7, 8, ' ' ];
+        var data = [ 1, 2, 3, 4, 5, 6, 7, 8, ' ' ];
 
-            if (data.indexOf(tmp) === -1) {
-                data[idx] = tmp;
-                idx++;
+        // 0 -> 1, 3
+        // 1 -> 0, 2, 4
+        // 2 -> 1, 5
+        // 3 -> 0, 4, 6
+        // 4 -> 1, 3, 5, 7
+        // 5 -> 2, 4, 8
+        // 6 -> 3, 7
+        // 7 -> 4, 6, 8
+        // 8 -> 5, 7
+        
+        //100번 shuffle
+        for (var i = 0; i < 100; i++) {
+            if (data.indexOf(' ') === 0) {
+                var tmp = Math.floor(Math.random() * 2);
+                if (tmp === 0) {
+                    [data[0], data[1]] = [data[1], data[0]];
+                }
+                else if (tmp === 1) {
+                    [data[0], data[3]] = [data[3], data[0]];
+                }
             }
-            
-            // 한번에 정답이 만들어질 경우의 예외처리 필요
+            else if (data.indexOf(' ') === 1) {
+                var tmp = Math.floor(Math.random() * 3);
+                if (tmp === 0) {
+                    [data[1], data[0]] = [data[0], data[1]];
+                }
+                else if (tmp === 1) {
+                    [data[1], data[2]] = [data[2], data[1]];
+                }
+                else if (tmp === 2) {
+                    [data[1], data[4]] = [data[4], data[1]];
+                }
+            }
+            else if (data.indexOf(' ') === 2) {
+                var tmp = Math.floor(Math.random() * 2);
+                if (tmp === 0) {
+                    [data[2], data[1]] = [data[1], data[2]];
+                }
+                else if (tmp === 1) {
+                    [data[2], data[5]] = [data[5], data[2]];
+                }
+                
+            }
+            else if (data.indexOf(' ') === 3) {
+                var tmp = Math.floor(Math.random() * 3);
+                if (tmp === 0) {
+                    [data[3], data[0]] = [data[0], data[3]];
+                }
+                else if (tmp === 1) {
+                    [data[3], data[4]] = [data[4], data[3]];
+                }
+                else if (tmp === 2) {
+                    [data[3], data[6]] = [data[6], data[3]];
+                }
+            }
+            else if (data.indexOf(' ') === 4) {
+                var tmp = Math.floor(Math.random() * 4);
+                if (tmp === 0) {
+                    [data[4], data[1]] = [data[1], data[4]];
+                }
+                else if (tmp === 1) {
+                    [data[4], data[3]] = [data[3], data[4]];
+                }
+                else if (tmp === 2) {
+                    [data[4], data[5]] = [data[5], data[4]];
+                }
+                else if (tmp === 3) {
+                    [data[4], data[7]] = [data[7], data[4]];
+                }
+            }
+            else if (data.indexOf(' ') === 5) {
+                var tmp = Math.floor(Math.random() * 3);
+                if (tmp === 0) {
+                    [data[5], data[2]] = [data[2], data[5]];
+                }
+                else if (tmp === 1) {
+                    [data[5], data[4]] = [data[4], data[5]];
+                }
+                else if (tmp === 2) {
+                    [data[5], data[8]] = [data[8], data[5]];
+                }
+            }
+            else if (data.indexOf(' ') === 6) {
+                var tmp = Math.floor(Math.random() * 2);
+                if (tmp === 0) {
+                    [data[6], data[3]] = [data[3], data[6]];
+                }
+                else if (tmp === 1) {
+                    [data[6], data[7]] = [data[7], data[6]];
+                }
+                
+            }
+            else if (data.indexOf(' ') === 7) {
+                var tmp = Math.floor(Math.random() * 3);
+                if (tmp === 0) {
+                    [data[7], data[4]] = [data[4], data[7]];
+                }
+                else if (tmp === 1) {
+                    [data[7], data[6]] = [data[6], data[7]];
+                }
+                else if (tmp === 2) {
+                    [data[7], data[8]] = [data[8], data[7]];
+                }
+            }
+            else if (data.indexOf(' ') === 8) {
+                var tmp = Math.floor(Math.random() * 2);
+                if (tmp === 0) {
+                    [data[8], data[5]] = [data[5], data[8]];
+                }
+                else if (tmp === 1) {
+                    [data[8], data[7]] = [data[7], data[8]];
+                }
+            }
+        }
 
-            if (idx === 9) {
-                data[data.indexOf(9)] = '*';
-                break;
-            }
+        const mouseDown = (e) => {
+            e.target.style.backgroundColor = "rgba(255, 255, 255, 1)";
+        }
+
+        const mouseUp = (e) => {
+            e.target.style.backgroundColor = "rgba(238, 253, 153, 1)";
+        }
+
+        const mouseEnter = (e) => {
+            e.target.style.backgroundColor = "rgba(214, 238, 81, 1)";
+        }
+
+        const mouseLeave = (e) => {
+            e.target.style.backgroundColor = "rgba(238, 253, 153, 1)";
         }
 
         const moveNum = (e) => {
@@ -58,178 +174,178 @@
             //console.log(document.getElementById('1').childNodes[0].innerHTML); 근처 button의 innerHTML
             //console.log(data); // 변화 전 array
             //console.log(answer); // 정답용 array
-            //console.log(JSON.stringify([1, 2, '*']) == JSON.stringify([1, 2, '*'])); 배열 비교
+            //console.log(JSON.stringify([[1, 2, ' '], [2, 3, 4]]) == JSON.stringify([[1, 2, ' '], [2, 3, 4]]));
 
             if (e.target.parentNode.id === '0') {
                 //0번 div 누름
-                if (document.getElementById('1').childNodes[0].innerHTML === '*') {
-                    //버튼 element 변환
+                if (document.getElementById('1').childNodes[0].innerHTML === ' ') {
+                    //버튼 innerHTML 변환
                     document.getElementById('1').childNodes[0].innerHTML = e.target.innerHTML;
-                    e.target.innerHTML = '*';
+                    e.target.innerHTML = ' ';
 
                     //배열 swap
                     [data[0], data[1]] = [data[1], data[0]];
                 }
 
-                else if (document.getElementById('3').childNodes[0].innerHTML === '*') {
+                else if (document.getElementById('3').childNodes[0].innerHTML === ' ') {
                     document.getElementById('3').childNodes[0].innerHTML = e.target.innerHTML;
-                    e.target.innerHTML = '*';
+                    e.target.innerHTML = ' ';
 
                     [data[0], data[3]] = [data[3], data[0]];
                 }
             }
             else if (e.target.parentNode.id === '1') {
                 //1번 div 누름
-                if (document.getElementById('0').childNodes[0].innerHTML === '*') {
+                if (document.getElementById('0').childNodes[0].innerHTML === ' ') {
                     document.getElementById('0').childNodes[0].innerHTML = e.target.innerHTML;
-                    e.target.innerHTML = '*';
+                    e.target.innerHTML = ' ';
                     
                     [data[1], data[0]] = [data[0], data[1]];
                 } 
-                else if (document.getElementById('2').childNodes[0].innerHTML === '*') {
+                else if (document.getElementById('2').childNodes[0].innerHTML === ' ') {
                     document.getElementById('2').childNodes[0].innerHTML = e.target.innerHTML;
-                    e.target.innerHTML = '*';
+                    e.target.innerHTML = ' ';
 
                     [data[1], data[2]] = [data[2], data[1]];
                 }
-                else if (document.getElementById('4').childNodes[0].innerHTML === '*') {
+                else if (document.getElementById('4').childNodes[0].innerHTML === ' ') {
                     document.getElementById('4').childNodes[0].innerHTML = e.target.innerHTML;
-                    e.target.innerHTML = '*';
+                    e.target.innerHTML = ' ';
 
                     [data[1], data[4]] = [data[4], data[1]];
                 }
             }
             else if (e.target.parentNode.id === '2') {
                 //2번 div 누름
-                if (document.getElementById('1').childNodes[0].innerHTML === '*') {
+                if (document.getElementById('1').childNodes[0].innerHTML === ' ') {
                     document.getElementById('1').childNodes[0].innerHTML = e.target.innerHTML;
-                    e.target.innerHTML = '*';
+                    e.target.innerHTML = ' ';
 
                     [data[2], data[1]] = [data[1], data[2]];
                 } 
-                else if (document.getElementById('5').childNodes[0].innerHTML === '*') {
+                else if (document.getElementById('5').childNodes[0].innerHTML === ' ') {
                     document.getElementById('5').childNodes[0].innerHTML = e.target.innerHTML;
-                    e.target.innerHTML = '*';
+                    e.target.innerHTML = ' ';
 
                     [data[2], data[5]] = [data[5], data[2]];
                 }
             }
             else if (e.target.parentNode.id === '3') {
                 //3번 div 누름
-                if (document.getElementById('0').childNodes[0].innerHTML === '*') {
+                if (document.getElementById('0').childNodes[0].innerHTML === ' ') {
                     document.getElementById('0').childNodes[0].innerHTML = e.target.innerHTML;
-                    e.target.innerHTML = '*';
+                    e.target.innerHTML = ' ';
 
                     [data[3], data[0]] = [data[0], data[3]];
                 } 
-                else if (document.getElementById('4').childNodes[0].innerHTML === '*') {
+                else if (document.getElementById('4').childNodes[0].innerHTML === ' ') {
                     document.getElementById('4').childNodes[0].innerHTML = e.target.innerHTML;
-                    e.target.innerHTML = '*';
+                    e.target.innerHTML = ' ';
 
                     [data[3], data[4]] = [data[4], data[3]];
                 }
-                else if (document.getElementById('6').childNodes[0].innerHTML === '*') {
+                else if (document.getElementById('6').childNodes[0].innerHTML === ' ') {
                     document.getElementById('6').childNodes[0].innerHTML = e.target.innerHTML;
-                    e.target.innerHTML = '*';
+                    e.target.innerHTML = ' ';
 
                     [data[3], data[6]] = [data[6], data[3]];
                 }
             }
             else if (e.target.parentNode.id === '4') {
                 //4번 div 누름
-                if (document.getElementById('1').childNodes[0].innerHTML === '*') {
+                if (document.getElementById('1').childNodes[0].innerHTML === ' ') {
                     document.getElementById('1').childNodes[0].innerHTML = e.target.innerHTML;
-                    e.target.innerHTML = '*';
+                    e.target.innerHTML = ' ';
 
                     [data[4], data[1]] = [data[1], data[4]];
                 }
-                else if (document.getElementById('3').childNodes[0].innerHTML === '*') {
+                else if (document.getElementById('3').childNodes[0].innerHTML === ' ') {
                     document.getElementById('3').childNodes[0].innerHTML = e.target.innerHTML;
-                    e.target.innerHTML = '*';
+                    e.target.innerHTML = ' ';
 
                     [data[4], data[3]] = [data[3], data[4]];
                 }
-                else if (document.getElementById('5').childNodes[0].innerHTML === '*') {
+                else if (document.getElementById('5').childNodes[0].innerHTML === ' ') {
                     document.getElementById('5').childNodes[0].innerHTML = e.target.innerHTML;
-                    e.target.innerHTML = '*';
+                    e.target.innerHTML = ' ';
 
                     [data[4], data[5]] = [data[5], data[4]];
                 }
-                else if (document.getElementById('7').childNodes[0].innerHTML === '*') {
+                else if (document.getElementById('7').childNodes[0].innerHTML === ' ') {
                     document.getElementById('7').childNodes[0].innerHTML = e.target.innerHTML;
-                    e.target.innerHTML = '*';
+                    e.target.innerHTML = ' ';
 
                     [data[4], data[7]] = [data[7], data[4]];
                 }
             }
             else if (e.target.parentNode.id === '5') {
                 //5번 div 누름
-                if (document.getElementById('2').childNodes[0].innerHTML === '*') {
+                if (document.getElementById('2').childNodes[0].innerHTML === ' ') {
                     document.getElementById('2').childNodes[0].innerHTML = e.target.innerHTML;
-                    e.target.innerHTML = '*';
+                    e.target.innerHTML = ' ';
 
                     [data[5], data[2]] = [data[2], data[5]];
                 }
-                else if (document.getElementById('4').childNodes[0].innerHTML === '*') {
+                else if (document.getElementById('4').childNodes[0].innerHTML === ' ') {
                     document.getElementById('4').childNodes[0].innerHTML = e.target.innerHTML;
-                    e.target.innerHTML = '*';
+                    e.target.innerHTML = ' ';
 
                     [data[5], data[4]] = [data[4], data[5]];
                 }
-                else if (document.getElementById('8').childNodes[0].innerHTML === '*') {
+                else if (document.getElementById('8').childNodes[0].innerHTML === ' ') {
                     document.getElementById('8').childNodes[0].innerHTML = e.target.innerHTML;
-                    e.target.innerHTML = '*';
+                    e.target.innerHTML = ' ';
 
                     [data[5], data[8]] = [data[8], data[5]];
                 }
             }
             else if (e.target.parentNode.id === '6') {
                 //6번 div 누름
-                if (document.getElementById('3').childNodes[0].innerHTML === '*') {
+                if (document.getElementById('3').childNodes[0].innerHTML === ' ') {
                     document.getElementById('3').childNodes[0].innerHTML = e.target.innerHTML;
-                    e.target.innerHTML = '*';
+                    e.target.innerHTML = ' ';
 
                     [data[6], data[3]] = [data[3], data[6]];
                 }
-                else if (document.getElementById('7').childNodes[0].innerHTML === '*') {
+                else if (document.getElementById('7').childNodes[0].innerHTML === ' ') {
                     document.getElementById('7').childNodes[0].innerHTML = e.target.innerHTML;
-                    e.target.innerHTML = '*';
+                    e.target.innerHTML = ' ';
 
                     [data[6], data[7]] = [data[7], data[6]];
                 }
             }
             else if (e.target.parentNode.id === '7') {
                 //7번 div 누름
-                if (document.getElementById('4').childNodes[0].innerHTML === '*') {
+                if (document.getElementById('4').childNodes[0].innerHTML === ' ') {
                     document.getElementById('4').childNodes[0].innerHTML = e.target.innerHTML;
-                    e.target.innerHTML = '*';
+                    e.target.innerHTML = ' ';
 
                     [data[7], data[4]] = [data[4], data[7]];
                 }
-                else if (document.getElementById('6').childNodes[0].innerHTML === '*') {
+                else if (document.getElementById('6').childNodes[0].innerHTML === ' ') {
                     document.getElementById('6').childNodes[0].innerHTML = e.target.innerHTML;
-                    e.target.innerHTML = '*';
+                    e.target.innerHTML = ' ';
 
                     [data[7], data[6]] = [data[6], data[7]];
                 }
-                else if (document.getElementById('8').childNodes[0].innerHTML === '*') {
+                else if (document.getElementById('8').childNodes[0].innerHTML === ' ') {
                     document.getElementById('8').childNodes[0].innerHTML = e.target.innerHTML;
-                    e.target.innerHTML = '*';
+                    e.target.innerHTML = ' ';
 
                     [data[7], data[8]] = [data[8], data[7]];
                 }
             }
             else if (e.target.parentNode.id === '8') {
                 //8번 div 누름
-                if (document.getElementById('5').childNodes[0].innerHTML === '*') {
+                if (document.getElementById('5').childNodes[0].innerHTML === ' ') {
                     document.getElementById('5').childNodes[0].innerHTML = e.target.innerHTML;
-                    e.target.innerHTML = '*';
+                    e.target.innerHTML = ' ';
 
                     [data[8], data[5]] = [data[5], data[8]];
                 }
-                else if (document.getElementById('7').childNodes[0].innerHTML === '*') {
+                else if (document.getElementById('7').childNodes[0].innerHTML === ' ') {
                     document.getElementById('7').childNodes[0].innerHTML = e.target.innerHTML;
-                    e.target.innerHTML = '*';
+                    e.target.innerHTML = ' ';
 
                     [data[8], data[7]] = [data[7], data[8]];
                 }
@@ -240,21 +356,22 @@
 
             //data 배열이 1, 2, 3, 4, 5, 6, 7, 8, * 순으로 정렬되면 정답입니다 출력
             if (JSON.stringify(data) == JSON.stringify(answer)) {
-                alert('정답입니다!');
+                setTimeout(() => alert('정답입니다!'), 20);
             }
         }
 
-        const numbers = data.map((num, index) => (
+        const Numbers = data.map((num, index) => (
             <div key={index} id={index}>
-                <button className="numBtn" onClick={moveNum}>{num}</button>
+                <button className="numBtn" onClick={moveNum} onMouseDown={mouseDown} onMouseUp={mouseUp} onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
+                    {num}
+                </button>
             </div>
-        ));
+            )
+        );
 
         const NumberGame = () => {
             return (
-                <div id="wrap">
-                    {numbers}
-                </div>
+                <div id="wrap">{Numbers}</div>
             );
         }
     </script>
