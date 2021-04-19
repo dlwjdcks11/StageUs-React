@@ -35,12 +35,11 @@
     <script type="text/babel">
         let answer = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ' '];
         let data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ' '];
-
-        while(true) {        
+        while(true) {
+            let entropy = 0;        
             data.sort(function() {
                 return Math.random() - Math.random();
             })
-            let entropy = 0;
 
             for (let i of data) {
                 for (let j of data) {
@@ -54,7 +53,18 @@
                 break;
             }
         }  
-
+        document.getElementById('root').addEventListener("mousedown", function(e) {
+            e.target.style.backgroundColor = "rgba(255, 255, 255, 1)";
+        });
+        document.getElementById('root').addEventListener("mouseup", function(e) {
+            e.target.style.backgroundColor = "rgba(238, 253, 153, 1)";
+        });
+        document.getElementById('root').addEventListener("mouseenter", function(e) {
+            e.target.style.backgroundColor = "rgba(214, 238, 81, 1)";
+        });
+        document.getElementById('root').addEventListener("mouseleave", function(e) {
+            e.target.style.backgroundColor = "rgba(238, 253, 153, 1)";
+        });
         document.getElementById('root').addEventListener("click", function(e) {
             //up down right left
             let blankPosition = [data.indexOf(' ') - 4, data.indexOf(' ') + 4, data.indexOf(' ') + 1, data.indexOf(' ') - 1];
@@ -90,25 +100,9 @@
             }
         })
 
-        const mouseDown = (e) => {
-            e.target.style.backgroundColor = "rgba(255, 255, 255, 1)";
-        }
-
-        const mouseUp = (e) => {
-            e.target.style.backgroundColor = "rgba(238, 253, 153, 1)";
-        }
-
-        const mouseEnter = (e) => {
-            e.target.style.backgroundColor = "rgba(214, 238, 81, 1)";
-        }
-
-        const mouseLeave = (e) => {
-            e.target.style.backgroundColor = "rgba(238, 253, 153, 1)";
-        }      
-
         const Numbers = data.map((num, index) => (
             <div key={index} id={index + 1}>
-                <button className="numBtn" onMouseDown={mouseDown} onMouseUp={mouseUp} onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
+                <button className="numBtn">
                     {num}
                 </button>
             </div>
