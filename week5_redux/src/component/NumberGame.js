@@ -5,15 +5,18 @@ import Button from './Button'
 let flag = true;
 const NumberGame = () => {
     const forMapArr = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"];
+    const compare = {"1":1,"2":2,"3":3,"4":4,"5":5,"6":6,"7":7,"8":8,"9":9,"10":10,"11":11,"12":12,"13":13,"14":14,"15":15,"16":" "};
     const data = useSelector(state => state)
     const dispatch = useDispatch();
-    if (JSON.stringify(data.numbers) === JSON.stringify({"1":1,"2":2,"3":3,"4":4,"5":5,"6":6,"7":7,"8":8,"9":9,"10":10,"11":11,"12":12,"13":13,"14":14,"15":15,"16":" "}) && flag) {
-        document.getElementById('wrap').style.display = "none"
-        let answer = document.createTextNode("정답입니다!");
-        document.getElementById('root').appendChild(answer);
+
+    if (JSON.stringify(data.numbers) === JSON.stringify(compare) && flag) {
         flag = false;
+        document.getElementById('wrap').style.display = "none";
+        let answerSheet = document.createElement('div');
+        answerSheet.id = 'answer';
+        answerSheet.innerHTML = "정답입니다!";
+        document.getElementById('root').appendChild(answerSheet);
     }
-    //console.log('aaa');
 
     document.getElementById('root').addEventListener("click", function(e) {
         if (e.target.className === 'numBtn') {
