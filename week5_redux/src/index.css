@@ -11,36 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-#wrap {
-  display: grid;
-  grid-template-columns: 100px 100px 100px 100px;
-  grid-template-rows: 100px 100px 100px 100px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -200px;
-  margin-left: -200px;
-}
-
-#wrap div {
-  display: flex;
-  margin: auto auto;
-}
-
-.numBtn {
-  background-color: rgb(238, 253, 153);
-  height: 60px;
-  width: 60px;
-  font-size: 25px;
-  border-radius: 8px;
-}
-
-#answer {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  font-size: 50px;
-  margin-left: -132px;
-  margin-top: -33px;
-}
