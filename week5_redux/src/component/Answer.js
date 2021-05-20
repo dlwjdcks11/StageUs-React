@@ -7,8 +7,8 @@ const AnswerSheet = styled.div`
     top: 20%;
     left: 50%;
     font-size: 50px;
-    margin-left: -120px;
-    margin-top: -33px;
+    font-family: '궁서';
+    transform:translate(-50%, -50%);
 `;
 
 const Answer = () => {
@@ -16,7 +16,7 @@ const Answer = () => {
 
     return (
         <React.Fragment>
-            {currentState ? <AnswerSheet>정답입니다!</AnswerSheet> : <AnswerSheet>숫자께-임</AnswerSheet>}
+            {currentState ? <AnswerSheet>끗ㅡ</AnswerSheet> : <AnswerSheet>숫자께-임</AnswerSheet>}
         </React.Fragment>
     );
 }

@@ -1,20 +1,35 @@
 import React from "react";
 import styled, { css } from 'styled-components';
-import { darken, lighten } from 'polished';
+import { lighten } from 'polished';
 import { useSelector } from 'react-redux';
 
-const StyledNumberButton = styled.button`
-    height: 60px;
-    width: 60px;
-    font-size: 25px;
-    border-radius: 8px;
-    
+const StyledNumberButton = styled.button`    
     ${props => {
         const backColor = props.backgroundColor || 'white';
         const gradConcentration = props.gradation || 0;
     
         return css`
             background-color: ${ lighten(gradConcentration, backColor) };
+            border-color: ${ lighten(0.15, backColor) };
+            height: 4rem;
+            width: 4rem;
+            font-size: 1.5rem;
+            border-radius: 0.8rem;
+            cursor: pointer;
+            font-family: sans-serif;
+            
+            font-weight: 500;
+            border: none;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease 0s;
+            cursor: pointer;
+
+            &:hover {
+                background-color: ${ lighten(gradConcentration + 0.01, backColor) };
+                box-shadow: 0px 15px 20px rgba(178, 178, 178, 0.6);
+                color: #B2B2B2;
+                transform: translateY(-7px);
+            }
         `;
     }}
 `;
@@ -26,7 +41,6 @@ const StyledDiv = styled.div`
 
 const Button = (props) => {
     const gameState = useSelector(state => state.isStarted); 
-    console.log(props.backColor);
 
     return (
         <React.Fragment>
@@ -38,16 +52,5 @@ const Button = (props) => {
         </React.Fragment>
     );
 };
-
-// const Button = (state) => {
-//     const dispatch = useDispatch();
-
-//     return (
-//         <div>
-//             <button onClick={() => dispatch(increment())}>증가</button>
-//             <button onClick={() => dispatch(decrement())}>감소</button>
-//         </div>
-//     );
-// }
 
 export default Button;

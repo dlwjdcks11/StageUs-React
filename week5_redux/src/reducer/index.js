@@ -67,18 +67,10 @@ const initState = {
     isStarted: false
 }
 
-// const initState = {
-//     value: 10,
-//     diff: 1,
-// }
-
 // 액션에 대한 정의 작성
 const reducer = (state = initState, action) => { // 리덕서 생성( 리덕서는 state의 action을 매개변수로 받음 )
     switch (action.type) {
         case CHANGE:
-            // console.log(state.numbers);
-            // console.log(action.clicked);
-            // console.log(action.blank);
             let t1 = { ...state };
             t1.numbers[action.blank] = t1.numbers[action.clicked];
             t1.numbers[action.clicked] = ' ';
@@ -125,12 +117,6 @@ const reducer = (state = initState, action) => { // 리덕서 생성( 리덕서�
         default: // useSelector를 사용할 때 무조건 얘가 수행이 된다.
             return state;
     };
-    // case INCREMENT:
-    //     return { ...state, value: state.value + state.diff };
-    // case DECREMENT:
-    //     return { ...state, value: state.value - state.diff };
-    // case SET_DIFF:
-    //     return { ...state, diff: action.diff };
 }
 
 export default reducer;

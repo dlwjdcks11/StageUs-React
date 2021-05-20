@@ -1,7 +1,4 @@
 import React from 'react';
-// import Counter from './component/Counter';
-// import Button from './component/Button'
-// import Option from './component/Option'
 import NumberGame from './component/NumberGame'
 import Answer from './component/Answer'
 import StartButton from './component/StartButton'
