@@ -12,7 +12,7 @@ const AnswerSheet = styled.div`
 `;
 
 const Answer = () => {
-    const currentState = useSelector(state => state.current);
+    const currentState:boolean = useSelector((state:any) => state.current);
 
     return (
         <React.Fragment>

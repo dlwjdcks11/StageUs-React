@@ -1,16 +1,14 @@
 import React from 'react';
 import { NumberGame } from './component/NumberGame'
 import Answer from './component/Answer'
-import StartButton from './component/StartButton'
-import ResetButton from './component/ResetButton'
+import GameStateButton from './component/GameStateButton'
 
 const App = () => {
   return (
     <React.Fragment>
       <Answer/>
       <NumberGame/>
-      <StartButton/>
-      <ResetButton/>
+      <GameStateButton/>
     </React.Fragment>
   )
 }

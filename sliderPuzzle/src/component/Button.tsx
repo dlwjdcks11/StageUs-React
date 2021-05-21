@@ -3,10 +3,15 @@ import styled, { css } from 'styled-components';
 import { lighten } from 'polished';
 import { useSelector } from 'react-redux';
 
-const StyledNumberButton = styled.button`    
-    ${props => {
-        const backColor = props.backgroundColor || 'white';
-        const gradConcentration = props.gradation || 0;
+interface customProps {
+    backgroundColor:string,
+    gradation:number
+}
+
+const StyledNumberButton = styled.button<customProps>`    
+    ${(props:any) => {
+        const backColor:string = props.backgroundColor || 'white';
+        const gradConcentration:number = props.gradation || 0;
     
         return css`
             background-color: ${ lighten(gradConcentration, backColor) };
@@ -39,8 +44,8 @@ const StyledDiv = styled.div`
     margin: auto auto;
 `;
 
-const Button = (props) => {
-    const gameState = useSelector(state => state.isStarted); 
+const Button = (props:any):JSX.Element => {
+    const gameState:boolean = useSelector((state:any) => state.isStarted); 
 
     return (
         <React.Fragment>

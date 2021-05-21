@@ -14,10 +14,10 @@ const StyledDiv = styled.div`
     transform:translate(-50%, -50%);
 `;
 
-export let tmp = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ' '];
-export let shuffle = (arr):any => {
+export let tmp:any = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ' '];
+export let shuffle = (arr:any):any => {
     while(true) {
-        let entropy = 0;        
+        let entropy:number = 0;        
         arr.sort(() => {
             return Math.random() - Math.random();
         })
@@ -57,17 +57,17 @@ export let shuffle = (arr):any => {
     }
 }
 
-export const NumberGame = () => {
-    const forMapArr = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"];
-    const compare = {"1":1,"2":2,"3":3,"4":4,"5":5,"6":6,"7":7,"8":8,"9":9,"10":10,"11":11,"12":12,"13":13,"14":14,"15":15,"16":" "};
-    const color = ["#379392", "#4FB0C6", "#4F86C6", "#6C49B8"];
-    const data = useSelector(state => state);
-    const dispatch = useDispatch();
+export const NumberGame = ():JSX.Element => {
+    const forMapArr:string[] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"];
+    const compare:object = {"1":1,"2":2,"3":3,"4":4,"5":5,"6":6,"7":7,"8":8,"9":9,"10":10,"11":11,"12":12,"13":13,"14":14,"15":15,"16":" "};
+    const color:string[] = ["#379392", "#4FB0C6", "#4F86C6", "#6C49B8"];
+    const data:any = useSelector(state => state);
+    const dispatch:any = useDispatch();
 
-    const handleClick = (e) => {
-        let clickedPosition = e.target.parentNode.id;
-        let blank = -1;
-        let nearPosition = [-1, -1, -1, -1];
+    const handleClick = (e:any):void => {
+        let clickedPosition:string = e.target.parentNode.id;
+        let blank:number = -1;
+        let nearPosition:number[] = [-1, -1, -1, -1];
             
         for (let i of forMapArr) {
             if (data.numbers[i] === ' ') {
@@ -93,12 +93,12 @@ export const NumberGame = () => {
 
     return (
         <StyledDiv>
-            {forMapArr.map((val, idx) => {
+            {forMapArr.map((val:string, idx:number):JSX.Element => {
                 return <Button num={data.numbers[val]} 
                         index={val} 
                         key={idx}
                         onclick={handleClick}
-                        backColor={color[parseInt(idx / 4)]} 
+                        backColor={color[Math.floor(idx / 4)]} 
                         grad={(idx % 4 + 1) / 10}/>
             })}
         </StyledDiv>
