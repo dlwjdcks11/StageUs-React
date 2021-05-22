@@ -25,7 +25,7 @@ const initState:any = {
 }
 
 // 액션에 대한 정의 작성
-const reducer = (state:any = initState, action) => { // 리덕서 생성( 리덕서는 state의 action을 매개변수로 받음 )
+const reducer = (state:any = initState, action:any) => { // 리덕서 생성( 리덕서는 state의 action을 매개변수로 받음 )
     switch (action.type) {
         case CHANGE:
             let t1 = { ...state };

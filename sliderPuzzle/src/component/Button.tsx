@@ -37,6 +37,10 @@ const StyledNumberButton = styled.button<customProps>`
             }
         `;
     }}
+
+    ${props => props.disabled && css`
+        background-color: grey;
+    `};
 `;
 
 const StyledDiv = styled.div`

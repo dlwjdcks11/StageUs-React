@@ -13,10 +13,10 @@ const StyledStateButton = styled.button<customProps>`
     position: absolute;
     top: 80%;
     left: 50%;
-    background-color: ${ lighten(0.1, "#4F86C6") };
 
     width: 120px;
     height: 45px;
+    background-color: ${ lighten(0.1, "#4F86C6") };
     font-family: sans-serif;
     font-size: 11px;
     text-transform: uppercase;
@@ -40,6 +40,9 @@ const StyledStateButton = styled.button<customProps>`
     `};
     ${props => props.initButton && css`
         transform:translate(25%, -50%);
+    `};
+    ${props => props.disabled && css`
+        background-color: grey;
     `};
 `;
 
