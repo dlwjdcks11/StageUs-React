@@ -48,7 +48,7 @@ const StyledDiv = styled.div`
     margin: auto auto;
 `;
 
-const Button = (props:any):JSX.Element => {
+const Button:React.FC = (props:any):JSX.Element => {
     const gameState:boolean = useSelector((state:any) => state.isStarted); 
 
     return (

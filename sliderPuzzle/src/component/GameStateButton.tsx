@@ -5,8 +5,7 @@ import { shuffle, start, correct, initialize } from '../action/index'
 import { lighten } from 'polished';
 
 interface customProps {
-    startButton:boolean,
-    initButton:boolean
+    buttonDistinguish:boolean,
 }
 
 const StyledStateButton = styled.button<customProps>`
@@ -35,10 +34,10 @@ const StyledStateButton = styled.button<customProps>`
         color: #FFFFFF;
     }
 
-    ${props => props.startButton && css`
+    ${props => !props.buttonDistinguish && css`
         transform:translate(-125%, -50%);
     `};
-    ${props => props.initButton && css`
+    ${props => props.buttonDistinguish && css`
         transform:translate(25%, -50%);
     `};
     ${props => props.disabled && css`
@@ -50,7 +49,7 @@ const GameStateButton = ():JSX.Element => {
     const gameState:boolean = useSelector((state:any) => state.isStarted);
     const dispatch = useDispatch();
 
-    document.getElementById('root').addEventListener("click", function(e:any) {
+    document.getElementById('root').addEventListener("click", function(e:any):void {
         if (e.target.innerHTML === "시작") {
             dispatch(shuffle());
             dispatch(start(true));
@@ -58,7 +57,7 @@ const GameStateButton = ():JSX.Element => {
         }
     })
 
-    document.getElementById('root').addEventListener("click", function(e:any) {
+    document.getElementById('root').addEventListener("click", function(e:any):void {
         if (e.target.innerHTML === "초기화") {
             dispatch(initialize());
             dispatch(correct(false));
@@ -69,11 +68,11 @@ const GameStateButton = ():JSX.Element => {
     return (
         <React.Fragment>
             {gameState ? 
-            <StyledStateButton startButton={true} initButton={false} disabled>시작</StyledStateButton> 
-            : <StyledStateButton startButton={true} initButton={false}>시작</StyledStateButton>}
+            <StyledStateButton buttonDistinguish={false} disabled>시작</StyledStateButton> 
+            : <StyledStateButton buttonDistinguish={false}>시작</StyledStateButton>}
             {gameState ?
-            <StyledStateButton startButton={false} initButton={true}>초기화</StyledStateButton> 
-            : <StyledStateButton startButton={false} initButton={true} disabled>초기화</StyledStateButton>}
+            <StyledStateButton buttonDistinguish={true}>초기화</StyledStateButton> 
+            : <StyledStateButton buttonDistinguish={true} disabled>초기화</StyledStateButton>}
         </React.Fragment>
     );
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { change, correct, start } from '../action/index'
 import styled from 'styled-components';
