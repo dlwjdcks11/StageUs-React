@@ -16,6 +16,10 @@ module.exports = {
             {
                 test: /\.(js | jsx | ts | tsx)?/, // 정규 표현식, js랑 jsx 다 가져간다 이뜻
                 loader: 'babel-loader'
+            },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                loader: 'file-loader',
             }
         ]
     },
