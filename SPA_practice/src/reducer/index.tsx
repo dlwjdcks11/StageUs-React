@@ -4,7 +4,7 @@ const initState:any = {
     value: 0,
 }
 
-const reduce = (state:any = initState, action:any) => {
+const reducer = (state:any = initState, action:any) => {
     switch(action.type) {
         case CHANGE:
             return { ...state, value: action.value };
@@ -13,3 +13,5 @@ const reduce = (state:any = initState, action:any) => {
             return { ...state };
     }
 }
+
+export default reducer;

@@ -11,11 +11,11 @@ const StyledButton = styled.button`
     
 `;
 
-const NavButtons = () => {
+const NavButtons = (props) => {
     return (
         <React.Fragment>
             <StyledDiv>
-                <StyledButton>왈랄랄루</StyledButton>
+                <StyledButton onClick={props.onclick} id={props.index}>왈랄랄루</StyledButton>
             </StyledDiv>
         </React.Fragment>
     )

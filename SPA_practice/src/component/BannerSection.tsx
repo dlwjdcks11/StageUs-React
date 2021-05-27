@@ -19,11 +19,19 @@ const StyledSection = styled.section`
     align-items: center;
 `;
 
+const StyledBannerWrapper = styled.div`
+    
+`;
+
+const StyledTitle = styled.h1`
+    display: inline;
+`;
+
 const BannerSection = () => {
     return (
         <React.Fragment>
             <StyledSection>
-                <h1>Lorem Ipsum</h1>
+                <StyledTitle>Lorem Ipsum</StyledTitle>
                 <ScrollMoveButton/>
             </StyledSection>
         </React.Fragment>

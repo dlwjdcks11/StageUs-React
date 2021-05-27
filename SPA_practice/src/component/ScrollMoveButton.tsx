@@ -10,7 +10,9 @@ const StyledScrollButton = styled.button`
 const ScrollMoveButton = () => {
     return (
         <React.Fragment>
-            <StyledScrollButton>클릭해</StyledScrollButton>
+            <div>
+                <StyledScrollButton>클릭해</StyledScrollButton>
+            </div>
         </React.Fragment>
     )
 }
