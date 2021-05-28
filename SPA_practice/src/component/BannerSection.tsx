@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components'
-import ScrollMoveButton from './ScrollMoveButton';
+import ScrollMoveLink from './ScrollMoveLink';
 
 const StyledSection = styled.section`
     justify-content: center;
-    background-color: grey;
+    background-color: #E0E3DA;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -20,19 +20,29 @@ const StyledSection = styled.section`
 `;
 
 const StyledBannerWrapper = styled.div`
-    
+    position: relative;
+    width: 40rem;
 `;
 
 const StyledTitle = styled.h1`
-    display: inline;
+
+`;
+
+const StyledP = styled.p`
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
 `;
 
 const BannerSection = () => {
     return (
         <React.Fragment>
             <StyledSection>
-                <StyledTitle>Lorem Ipsum</StyledTitle>
-                <ScrollMoveButton/>
+                <StyledBannerWrapper>
+                    <StyledTitle>Lorem Ipsum</StyledTitle>
+                    <StyledP>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim</StyledP>
+                    <ScrollMoveLink/>
+                </StyledBannerWrapper>
             </StyledSection>
         </React.Fragment>
     )

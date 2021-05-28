@@ -1,16 +1,20 @@
 import React from 'react';
-import styled from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import NavButtons from './NavButtons'
 import { useDispatch } from 'react-redux';
 import { change } from '../action/index';
+import theme from './theme';
 
 const StyledWrapper = styled.div`
-    background: rgba(0, 0, 0, 1);
+    @media ${({ theme }) => theme.device.tablet} {
+        height: 100vh;
+        flex-direction: column;
+    }
+
+    background: #566270;
     width: 100%;
-    height: 300px;
-    display: grid;
-    grid-template-columns: 33% 33% 33%;
-    grid-template-rows: 300px;
+    height: 25vh;
+    display: flex;
 `;
 
 const ButtonWrapper = () => {
@@ -34,15 +38,15 @@ const ButtonWrapper = () => {
     }
 
     return (
-        <React.Fragment>
-            <StyledWrapper>
+        <ThemeProvider theme={theme}>
+            <StyledWrapper id="nav">
                 {arr.map((val, idx) => {
                     return <NavButtons onclick={clickHandler}
                             key={idx}
                             index={val}/>
                 })}
             </StyledWrapper>
-        </React.Fragment>
+        </ThemeProvider>
     )
 }
 
