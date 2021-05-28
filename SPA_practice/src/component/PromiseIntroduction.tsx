@@ -13,7 +13,7 @@ const InnerWrapper = styled.div`
 `;
 
 const StyledLine = styled.hr`
-
+    
 `;
 
 const PromiseIntroduction = () => {

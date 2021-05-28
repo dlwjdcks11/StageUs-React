@@ -8,7 +8,6 @@ const StyledScrollLink = styled.a`
     color: #FFFFFF !important;
     
     transition: all 2s ease-in-out 1s;
-    scroll-behavior: smooth;
     border-radius: 0.6rem;
     border: 0;
     cursor: pointer;
