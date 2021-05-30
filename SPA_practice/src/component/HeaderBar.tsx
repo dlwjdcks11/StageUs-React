@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
+import { useSelector, useDispatch } from 'react-redux';
+import { spawn } from '../action/index';
 
 const StyledHeader = styled.header`
     background: rgba(0, 0, 0, 0.5);
@@ -17,12 +19,24 @@ const StyledHeader = styled.header`
     font-size: 1.25rem;
     color: #FFFFFF;
     padding-left:0.8rem;
+
+    transition: transform 0.4s;
 `;
 
 const HeaderBar = () => {
+    const spawnFlag = useSelector((state:any) => state.spawnable);
+    const dispatch = useDispatch();
+
+    const handleScroll = () => {
+        const val = Math.floor(window.pageYOffset);
+        dispatch(spawn(val));
+    }
+
+    window.addEventListener('scroll', handleScroll);
+
     return (
         <React.Fragment>
-            <StyledHeader>왈랄랄루</StyledHeader>
+            {spawnFlag > 924 ? <StyledHeader>왈랄랄루</StyledHeader> : null}
         </React.Fragment>
     )
 }

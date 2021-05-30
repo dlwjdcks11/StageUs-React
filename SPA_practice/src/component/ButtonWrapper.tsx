@@ -24,12 +24,15 @@ const ButtonWrapper = () => {
     const clickHandler = (e) => {
         switch(e.target.id) {
             case "0":
+                location.href="#contents";
                 dispatch(change(0));
                 break;
             case "1":
+                location.href="#contents";
                 dispatch(change(1));
                 break;
             case "2":
+                location.href="#contents";
                 dispatch(change(2));
                 break;
             default:

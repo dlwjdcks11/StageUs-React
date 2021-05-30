@@ -4,9 +4,10 @@ import testImg from '../test.jpg';
 
 const SelfImage = styled.div`
     background-image: url(${testImg});
+    background-size: contain;
     margin: 1rem;
-    width: 20rem;
-    height: 20rem;
+    width: 30rem;
+    height: 10rem;
     background-repeat: no-repeat;
 `;
 
@@ -20,6 +21,10 @@ const StyledTitle = styled.h2`
 
 `;
 
+const ContactInfo = styled.h3`
+    
+`;
+
 const StyledSelfIntroduce = styled.p`
 
 `;
@@ -29,8 +34,23 @@ const SelfIntroduction = () => {
         <React.Fragment>
             <SelfImage/>
             <InnerWrapper>
-                <StyledTitle>안녕하세요, 이정찬 입니다.</StyledTitle>
-                <StyledSelfIntroduce>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</StyledSelfIntroduce>
+                <StyledTitle>
+                    안녕하세요, 이정찬 입니다.
+                </StyledTitle>
+                <ContactInfo>
+                    이메일: dlwjdcks7356@gmail.com<br/>
+                    카카오톡: sesame63<br/>
+                    Github: https://github.com/dlwjdcks11<br/>
+                </ContactInfo>
+                <StyledSelfIntroduce>
+                    인하대학교 컴퓨터공학과 3학년 재학, IGRUS 3년차<br/><br/>
+                    <b>기술스택</b><br/>
+                    자료구조, 알고리즘 구현: C++, python<br/>
+                    웹 개발: HTML, CSS, JS, React.js, node.js, Bootstrap, JQuery<br/>
+                    머신러닝: python, pytorch<br/>
+                    게임 개발: Unreal Engine 4, Unity Engine<br/>
+                    데이터베이스 구축: MySQL, PostgreSQL<br/>
+                </StyledSelfIntroduce>
             </InnerWrapper>
         </React.Fragment>
     )

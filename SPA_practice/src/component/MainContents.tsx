@@ -1,27 +1,34 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import { useSelector } from 'react-redux';
 import SelfIntroduction from './SelfIntroduction';
 import CareerIntroduction from './CareerIntroduction';
 import PromiseIntroduction from './PromiseIntroduction';
+import theme from './theme';
 
 const StyledMainWrapper = styled.div`
+    @media ${({ theme }) => theme.device.tablet} {
+        height: 100vh;
+        flex-direction: column;
+    }
+
     display: flex;
     width: 100%;
     background-color: #FFFFF3;
+    height: 1000px;
 `;
 
 const MainContents = () => {
     const flag = useSelector((state:any) => state.value);
     
     return (
-        <React.Fragment>
-            <StyledMainWrapper>
+        <ThemeProvider theme={theme}>
+            <StyledMainWrapper id="contents">
                 {flag === 0 ? <SelfIntroduction/> : null}
                 {flag === 1 ? <CareerIntroduction/> : null}
                 {flag === 2 ? <PromiseIntroduction/> : null}
             </StyledMainWrapper>
-        </React.Fragment>
+        </ThemeProvider>
     )
 };
 
