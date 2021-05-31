@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
+import { lighten, darken } from 'polished';
 
 const StyledDiv = styled.div`
     display: flex;
@@ -13,7 +14,7 @@ const StyledDiv = styled.div`
     flex-direction: column;
 `;
 
-const StyledHeader = styled.header`
+const StyledHeader = styled.div`
     display: block;
 `;
 
@@ -30,9 +31,32 @@ const StyledExplanation = styled.p`
 `;
 
 const StyledButton = styled.button`
-    display: block;
-    width: 5rem;
+    width: 7rem;
     height: 2rem;
+
+    background-color: #A593E0;
+    color: #FFFFFF !important;
+    transition: all 0.2s ease-in-out;
+    border-radius: 0.6rem;
+    border: 0;
+    cursor: pointer;
+    font-weight: 400;
+    height: 2.85rem;
+    line-height: 2.95rem;
+    padding: 0 1.5rem;
+    text-align: center;
+
+    &:hover {
+        background-color: ${ lighten(0.1, "#A593E0") };
+        box-shadow: 0px 15px 20px rgba(178, 178, 178, 0.6);
+        transform: translateY(-7px);
+    };
+
+    &:active {
+        background-color: ${ darken(0.1, "#A593E0") };
+        box-shadow: 0px 15px 20px rgba(178, 178, 178, 0.6);
+        transform: translateY(7px);
+    };
 `;
 
 const StyledHr = styled.hr`

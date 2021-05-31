@@ -4,16 +4,16 @@ import styled from 'styled-components'
 const StyledArticle = styled.article`
     display: flex;
     flex-direction: column;
-    margin: 1rem;
-    width: 100%;
+    width: 95%;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
 `;
 
 const InnerWrapper = styled.div`
-    margin-bottom: 2rem;
 `;
 
 const StyledLine = styled.hr`
-    
+    width: 100%;
 `;
 
 const PromiseIntroduction = () => {
@@ -25,6 +25,7 @@ const PromiseIntroduction = () => {
                     <StyledLine/>
                     조금 더 능력있는 웹 개발자가 되고 싶다. 디자인 센스가 너무 없지만, 열심히 공부해서 디자인도 잘 하는 개발자가 되고 싶다.
                 </InnerWrapper>
+                <br/>
                 <InnerWrapper>
                     장래 희망
                     <StyledLine/>

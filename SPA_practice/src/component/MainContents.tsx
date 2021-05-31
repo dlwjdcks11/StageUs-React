@@ -6,7 +6,7 @@ import CareerIntroduction from './CareerIntroduction';
 import PromiseIntroduction from './PromiseIntroduction';
 import theme from './theme';
 
-const StyledMainWrapper = styled.div`
+const StyledMainWrapper = styled.article`
     @media ${({ theme }) => theme.device.tablet} {
         height: 100vh;
         flex-direction: column;
@@ -15,7 +15,7 @@ const StyledMainWrapper = styled.div`
     display: flex;
     width: 100%;
     background-color: #FFFFF3;
-    height: 1000px;
+    height: 53.75rem;
 `;
 
 const MainContents = () => {

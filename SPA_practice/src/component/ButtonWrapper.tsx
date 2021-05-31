@@ -4,6 +4,7 @@ import NavButtons from './NavButtons'
 import { useDispatch } from 'react-redux';
 import { change } from '../action/index';
 import theme from './theme';
+import backgroundImg from '../background.png';
 
 const StyledWrapper = styled.div`
     @media ${({ theme }) => theme.device.tablet} {
@@ -11,7 +12,11 @@ const StyledWrapper = styled.div`
         flex-direction: column;
     }
 
-    background: #566270;
+    background-image: url(${backgroundImg});
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
     width: 100%;
     height: 25vh;
     display: flex;

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
+import theme from './theme';
 
 const StyledArticle = styled.article`
     display: flex;
@@ -30,7 +31,7 @@ const CareerIntroduction = () => {
                 <StyledP>IGRUS 가입</StyledP>
                 <StyledCareerTitle>2017.04</StyledCareerTitle>
                 <StyledP>Sk Sunny 참가</StyledP>
-                <StyledCareerTitle>2017.06</StyledCareerTitle>
+                <StyledCareerTitle>2017.08</StyledCareerTitle>
                 <StyledP>인하대학교 해커톤 참가</StyledP>
                 <StyledCareerTitle>2018.08</StyledCareerTitle>
                 <StyledP>카카오게임즈 웹 게임 경진대회 참가</StyledP>
