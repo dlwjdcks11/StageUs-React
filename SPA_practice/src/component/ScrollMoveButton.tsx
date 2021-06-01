@@ -30,8 +30,8 @@ const StyledScrollButton = styled.button`
     };
 `;
 
-const ScrollMoveButton = () => {
-    const clickHandler = () => {
+const ScrollMoveButton = ():JSX.Element => {
+    const clickHandler = ():void => {
         location.href="#nav";
     }
 

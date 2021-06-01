@@ -16,7 +16,7 @@ const StyledLine = styled.hr`
     width: 100%;
 `;
 
-const PromiseIntroduction = () => {
+const PromiseIntroduction = ():JSX.Element => {
     return (
         <React.Fragment>
             <StyledArticle>

@@ -23,6 +23,13 @@ module.exports = {
                 options: {
                     name: '[name].[ext]',
                 },
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                },
             }
         ]
     },

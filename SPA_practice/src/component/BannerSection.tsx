@@ -8,7 +8,7 @@ const StyledSection = styled.section`
         font-size: 0.8rem;
         height: 50vh;
     }
-    
+
     align-items: center;
     justify-content: center;
     background-color: #E0E3DA;
@@ -40,7 +40,7 @@ const StyledP = styled.p`
     margin-bottom: 3rem;
 `;
 
-const BannerSection = () => {
+const BannerSection = ():JSX.Element => {
     return (
         <ThemeProvider theme={theme}>
             <StyledSection>

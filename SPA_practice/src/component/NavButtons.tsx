@@ -12,6 +12,7 @@ const StyledDiv = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 100%;
 `;
 
 const StyledHeader = styled.div`
@@ -64,7 +65,7 @@ const StyledHr = styled.hr`
     background-color: #FFFFFF;
 `;
 
-const NavButtons = (props) => {
+const NavButtons = (props:any):JSX.Element => {
     const titles = ["자기소개", "경력", "나의 다짐"];
     const explanatations = ["나는 어떤 사람인가"
                             ,"나의 과거는 어땠는가"

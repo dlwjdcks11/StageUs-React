@@ -4,12 +4,16 @@ import NavButtons from './NavButtons'
 import { useDispatch } from 'react-redux';
 import { change } from '../action/index';
 import theme from './theme';
-import backgroundImg from '../background.png';
+import backgroundImg from '../images/background.png';
 
 const StyledWrapper = styled.div`
-    @media ${({ theme }) => theme.device.tablet} {
+    @media ${({ theme }) => theme.device.mobile} {
         height: 100vh;
+        font-size: 1rem;
         flex-direction: column;
+    }
+    @media ${({ theme }) => theme.device.tablet} {
+        font-size: 0.7rem;
     }
 
     background-image: url(${backgroundImg});
@@ -17,16 +21,17 @@ const StyledWrapper = styled.div`
     background-size: cover; 
     background-position: center; 
     background-attachment: fixed; 
+    font-size: 1rem;
     width: 100%;
     height: 25vh;
     display: flex;
 `;
 
-const ButtonWrapper = () => {
-    const arr = [0, 1, 2];
-    const dispatch = useDispatch();
+const ButtonWrapper = ():JSX.Element => {
+    const arr:number[] = [0, 1, 2];
+    const dispatch:any = useDispatch();
     
-    const clickHandler = (e) => {
+    const clickHandler = (e:any):void => {
         switch(e.target.id) {
             case "0":
                 location.href="#contents";

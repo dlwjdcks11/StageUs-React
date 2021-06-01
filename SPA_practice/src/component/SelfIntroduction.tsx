@@ -1,7 +1,18 @@
 import React from 'react';
-import styled, { ThemeProvider } from 'styled-components'
-import profileImg from '../profile.jpg';
+import styled, { keyframes, ThemeProvider } from 'styled-components'
+import profileImg from '../images/profile.jpg';
 import theme from './theme'
+
+const fadeIn = keyframes`
+    from {
+        opacity: 0;
+        transform: translateX(-3.25em);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+`;
 
 const OuterWrapper = styled.div`
     width: 100%;
@@ -19,6 +30,8 @@ const ImgWrapper = styled.div`
     width: 37rem;
     height: 28rem;
     margin: auto;
+    opacity: 0;
+    animation: ${fadeIn} 0.3s forwards;
 `;
 
 const SelfImage = styled.div`
@@ -40,17 +53,23 @@ const InnerWrapper = styled.div`
 
 const StyledTitle = styled.h2`
     margin-top: 0;
+    opacity: 0;
+    animation: ${fadeIn} 0.3s forwards 0.3s;
 `;
 
 const ContactInfo = styled.h3`
     width: 100%;
+    opacity: 0;
+    animation: ${fadeIn} 0.3s forwards 0.6s;
 `;
 
 const StyledSelfIntroduce = styled.p`
     width: 100%;
+    opacity: 0;
+    animation: ${fadeIn} 0.3s forwards 0.9s;
 `;
 
-const SelfIntroduction = () => {
+const SelfIntroduction = ():JSX.Element => {
     return (
         <ThemeProvider theme={theme}>
             <OuterWrapper>

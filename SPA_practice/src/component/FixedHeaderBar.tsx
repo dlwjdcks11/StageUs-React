@@ -21,11 +21,10 @@ const StyledHeader = styled.header<customProps>`
     @media ${({ theme }) => theme.device.tablet} {
         width: 100%;
     }
+    font-family: inherit;
     color: #a6a6a6;
     cursor: default;
     height: 3.25em;
-    left: 0;
-    top: 0;
     line-height: 3.25em;
     text-align: left;
     width: 100%;
@@ -56,12 +55,12 @@ const HeaderContents = styled.div`
     font-weight: 300;
 `;
 
-const FixedHeaderBar = () => {
-    const spawnFlag = useSelector((state:any) => state.spawnable);
-    const dispatch = useDispatch();
+const FixedHeaderBar = ():JSX.Element => {
+    const spawnFlag:number = useSelector((state:any) => state.spawnable);
+    const dispatch:any = useDispatch();
 
-    const handleScroll = () => {
-        const val = Math.floor(window.pageYOffset);
+    const handleScroll = ():void => {
+        const val:number = Math.floor(window.pageYOffset);
         dispatch(spawn(val));
     }
 
