@@ -26,6 +26,7 @@ const StyledArticle = styled.article<customProps>`
         animation-duration: 0.3s;
         animation-fill-mode: forwards;
         animation-delay: ${props.delay + "s"};
+        animation-timing-function: linear;
         `;
     }}
 `;

@@ -78,7 +78,7 @@ const NavButtons = (props:any):JSX.Element => {
                     <StyledTitles>{titles[props.index]}</StyledTitles>
                 </StyledHeader>
                 <StyledExplanation>{explanatations[props.index]}</StyledExplanation>
-                <StyledButton onClick={props.onclick} id={props.index}>Click me!</StyledButton>
+                <StyledButton onClick={props.onclick} id={props.index}>클릭</StyledButton>
             </StyledDiv>
             {props.index !== 2 ? <StyledHr/> : null}
         </React.Fragment>

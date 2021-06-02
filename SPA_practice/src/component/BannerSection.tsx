@@ -8,6 +8,10 @@ const StyledSection = styled.section`
         font-size: 0.8rem;
         height: 50vh;
     }
+    @media ${({ theme }) => theme.device.mobile} {
+        font-size: 0.7rem;
+        height: 50vh;
+    }
 
     align-items: center;
     justify-content: center;
@@ -34,6 +38,9 @@ const StyledTitle = styled.h1`
 const StyledP = styled.p`
     @media ${({ theme }) => theme.device.tablet} {
         font-size: 0.8rem;
+    }
+    @media ${({ theme }) => theme.device.mobile} {
+        font-size: 0.7rem;
     }
     color: #566270;
     font-size: 1.5rem;

@@ -21,6 +21,9 @@ const StyledHeader = styled.header<customProps>`
     @media ${({ theme }) => theme.device.tablet} {
         width: 100%;
     }
+    @media ${({ theme }) => theme.device.mobile} {
+        font-size: 0.9rem;
+    }
     font-family: inherit;
     color: #a6a6a6;
     cursor: default;

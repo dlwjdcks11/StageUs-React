@@ -7,13 +7,13 @@ import theme from './theme';
 import backgroundImg from '../images/background.png';
 
 const StyledWrapper = styled.div`
+    @media ${({ theme }) => theme.device.tablet} {
+        font-size: 0.65rem;
+    }
     @media ${({ theme }) => theme.device.mobile} {
         height: 100vh;
         font-size: 1rem;
         flex-direction: column;
-    }
-    @media ${({ theme }) => theme.device.tablet} {
-        font-size: 0.7rem;
     }
 
     background-image: url(${backgroundImg});

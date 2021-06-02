@@ -32,6 +32,8 @@ const ImgWrapper = styled.div`
     margin: auto;
     opacity: 0;
     animation: ${fadeIn} 0.3s forwards;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 `;
 
 const SelfImage = styled.div`
@@ -63,6 +65,15 @@ const ContactInfo = styled.h3`
     animation: ${fadeIn} 0.3s forwards 0.6s;
 `;
 
+const GithubLink = styled.a`
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+        color: blue;
+    }
+`;
+
 const StyledSelfIntroduce = styled.p`
     width: 100%;
     opacity: 0;
@@ -83,7 +94,8 @@ const SelfIntroduction = ():JSX.Element => {
                     <ContactInfo>
                         이메일: dlwjdcks7356@gmail.com<br/>
                         카카오톡: sesame63<br/>
-                        Github: https://github.com/dlwjdcks11<br/>
+                        Github: <GithubLink href="https://github.com/dlwjdcks11" target="_blank">https://github.com/dlwjdcks11</GithubLink>
+                        <br/>
                     </ContactInfo>
                     <StyledSelfIntroduce>
                         인하대학교 컴퓨터공학과 3학년 재학, IGRUS 3년차<br/><br/>
