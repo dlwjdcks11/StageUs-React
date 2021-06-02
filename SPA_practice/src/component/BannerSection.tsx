@@ -1,7 +1,16 @@
 import React from 'react';
-import styled, { ThemeProvider } from 'styled-components'
+import styled, { keyframes, ThemeProvider } from 'styled-components'
 import ScrollMoveButton from './ScrollMoveButton';
 import theme from './theme';
+
+const fadeIn = keyframes`
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+`;
 
 const StyledSection = styled.section`
     @media ${({ theme }) => theme.device.tablet} {
@@ -18,7 +27,7 @@ const StyledSection = styled.section`
     background-color: #E0E3DA;
     border-top: 0;
     min-height: 100vh;
-    height: 100vh;
+    height: 30em;
     width: 100%;
     position: relative;
     text-align: center;
@@ -32,7 +41,7 @@ const StyledBannerWrapper = styled.div`
 `;
 
 const StyledTitle = styled.h1`
-
+    animation: ${fadeIn} 2s forwards;
 `;
 
 const StyledP = styled.p`
@@ -45,6 +54,13 @@ const StyledP = styled.p`
     color: #566270;
     font-size: 1.5rem;
     margin-bottom: 3rem;
+    opacity: 0;
+    animation: ${fadeIn} 2s forwards 2s;
+`;
+
+const TempDiv = styled.div`
+    height: 4em;
+    background-color: #E0E3DA;
 `;
 
 const BannerSection = ():JSX.Element => {
@@ -57,6 +73,7 @@ const BannerSection = ():JSX.Element => {
                     <ScrollMoveButton/>
                 </StyledBannerWrapper>
             </StyledSection>
+            <TempDiv id="nav"/>
         </ThemeProvider>
     )
 }

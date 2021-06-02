@@ -23,7 +23,7 @@ const StyledWrapper = styled.div`
     background-attachment: fixed; 
     font-size: 1rem;
     width: 100%;
-    height: 25vh;
+    height: 28vh;
     display: flex;
 `;
 
@@ -52,7 +52,7 @@ const ButtonWrapper = ():JSX.Element => {
 
     return (
         <ThemeProvider theme={theme}>
-            <StyledWrapper id="nav">
+            <StyledWrapper>
                 {arr.map((val, idx) => {
                     return <NavButtons onclick={clickHandler}
                             key={idx}

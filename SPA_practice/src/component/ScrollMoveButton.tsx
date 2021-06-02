@@ -1,6 +1,17 @@
 import React from 'react';
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { lighten, darken } from 'polished';
+
+const fadeIn = keyframes`
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        visibility: visible;
+    }
+`;
+
 
 const StyledScrollButton = styled.button`
     width: 6rem;
@@ -16,6 +27,9 @@ const StyledScrollButton = styled.button`
     line-height: 2.95rem;
     padding: 0 1.5rem;
     text-align: center;
+    visibility: hidden;
+    
+    animation: ${fadeIn} 2s forwards 2s;
 
     &:hover {
         background-color: ${ lighten(0.1, "#A593E0") };

@@ -15,13 +15,13 @@ const StyledMainWrapper = styled.article`
     display: flex;
     width: 100%;
     background-color: #FFFFF3;
-    height: 53.75rem;
+    height: 55rem;
     flex-direction: column;
 `;
 
 const MainContents = ():JSX.Element => {
     const flag = useSelector((state:any) => state.value);
-    const dateArray:string[] = ["2017.03", "2017.03", "2017.04", "2017.08", "2018.08", "2020.03", "2021.01", "2021.06"];
+    const dateArray:string[] = ["2017.03", "2017.03", "2017.04", "2017.08", "2018.08", "2020.03", "2021.01", "2021.06", "2021.06"];
     const careerArray:string[] = ["인하대학교 입학", 
                                     "IGRUS 가입",
                                     "Sk Sunny 참가", 
@@ -29,7 +29,8 @@ const MainContents = ():JSX.Element => {
                                     "카카오게임즈 웹 게임 경진대회 참가", 
                                     "육군 만기전역", 
                                     "인하대학교 HCI 연구실 가짜전문가(머신러닝, 딥러닝)과정 수료", 
-                                    "StageUs 웹 프론트엔드 과정 수료"]
+                                    "StageUs 웹 프론트엔드 과정 수료",
+                                    "Unreal Engine 4를 이용하여 게임 <썸띵편의점> 개발"]
 
     
     return (
